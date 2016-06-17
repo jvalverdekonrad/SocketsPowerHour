@@ -2,8 +2,14 @@
 
 module.exports = function(io) {
 
+	// function Player ({ id }) {
+	// 	this.id = id;
+	// }
+
 	let comments    = [];
 	let connections = 0;
+
+	let users = [];
 
 	io.on('connection', function(socket) {
 

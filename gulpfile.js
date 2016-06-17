@@ -1,3 +1,4 @@
+'use strict';
 // ----------- //
 // Import Gulp //
 // ----------- //
@@ -34,7 +35,6 @@ gulp.task('sass', function() {
 // Concatenate & Minify Vendor JS //
 // ------------------------------ //
 gulp.task('vendor', function() {
-  console.log(config.Vendor_JS);
     return  gulp.src(config.Vendor_JS)
                   .pipe(concat('vendor.js'))
                   .pipe(gulp.dest(config.Dist_JS))

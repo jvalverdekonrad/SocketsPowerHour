@@ -11,7 +11,7 @@ module.exports = {
 		VENDOR_PATH + 'socket.io-1.4.5.js',
 	],
 	Dev_JS : [
-		DEV_PATH + '/scripts/app.js',
+		DEV_PATH + '/scripts/*.js',
 	],
 	Dist_JS : DIST_PATH + '/scripts/',
 	// ---------- //

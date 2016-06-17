@@ -7,20 +7,31 @@
 		<!--////////-->
 		<link rel="stylesheet" href="stylesheets/app.css">
 	</head>
-	<body>
+	<body ng-app="cat" >
 		
 		
-		<h6>Users connected: <span id="connections" ><!-- Connections Counter --></span> </h6>
-
-		<ul id="comments">
-			<!-- Comments -->
-		</ul>
-
-		<form id="commentForm" action="" >
-			<div>
-				<input type="text" id="comment">
+		<section id="container" class="full-screen" >
+			<div class="fs-item board row column medium-5">
+				<h1 class="title" >The Cat Game</h1>
+				<div class="tiles">
+					<div class="tile-row">
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+					</div>
+					<div class="tile-row">
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+					</div>
+					<div class="tile-row">
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+						<div class="tile column medium-4"></div>
+					</div>
+				</div>
 			</div>
-		</form>
+		</section>
 		
 		<!--/////////-->
 		<!-- Scripts -->

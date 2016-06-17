@@ -17,11 +17,6 @@ socket.on('init:comments', function (comments) {
 	updateComments(comments);
 });
 
-socket.on('new:connection', function (connections) {
-
-	jQuery('#connections').text(connections);
-});
-
 function updateComments(comments) {
 	var displayedComments = '';
 
@@ -32,6 +27,15 @@ function updateComments(comments) {
 	jQuery('#comments').html(displayedComments);
 }
 
+function Player(_ref) {
+	var id = _ref.id;
+
+	this.id = id;
+}
+
+var x = Player(1);
+
+console.log(x + ' caca');
 // When The action name is generic
 // verb:subject -> create:comment
 // When the subject did or was part of the action
