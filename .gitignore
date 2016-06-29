@@ -1,2 +1,4 @@
-node_modules
-bower_components
+./BasicConnection/node_modules
+./CommunicatingSockets/node_modules
+./NamespacingSockets/node_modules
+./Connect3/node_modules

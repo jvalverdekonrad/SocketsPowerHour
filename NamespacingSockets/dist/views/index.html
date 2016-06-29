@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Cat</title>
+		<!--////////-->
+		<!-- Styles -->
+		<!--////////-->
+		<link rel="stylesheet" href="stylesheets/app.css">
+	</head>
+	<body ng-app="cat" >
+		
+		
+		<section id="container" class="full-screen" >
+			<div class="fs-item row column medium-10">
+				<!--///////-->
+				<!-- Board -->
+				<!--///////-->
+				<div class="board column medium-7">
+					<h1 class="title" ><strong>You</strong> <small>vs</small> <strong>Charmander</strong></h1>
+					<div class="tiles">
+						<div class="tile-row">
+							<div class="tile column medium-4" data-x="0" data-y="0"></div>
+							<div class="tile column medium-4" data-x="0" data-y="1"></div>
+							<div class="tile column medium-4" data-x="0" data-y="2"></div>
+						</div>
+						<div class="tile-row">
+							<div class="tile column medium-4" data-x="1" data-y="0"></div>
+							<div class="tile column medium-4" data-x="1" data-y="1"></div>
+							<div class="tile column medium-4" data-x="1" data-y="2"></div>
+						</div>
+						<div class="tile-row">
+							<div class="tile column medium-4" data-x="2" data-y="0"></div>
+							<div class="tile column medium-4" data-x="2" data-y="1"></div>
+							<div class="tile column medium-4" data-x="2" data-y="2"></div>
+						</div>
+					</div>
+				</div>
+				<!--///////-->
+				<!-- Users -->
+				<!--///////-->
+				<div class="board column medium-4">
+					<h1 class="title" >Pokemons</h1>
+					<ul class="pokemons" >
+						<li>Charmander</li>
+						<li>Pikachu</li>
+						<li>Bulbasaur</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		
+		<!--/////////-->
+		<!-- Scripts -->
+		<!--/////////-->
+		<script src="scripts/vendor.js"></script>
+		<script src="scripts/app.js"></script>
+	</body>
+</html>
