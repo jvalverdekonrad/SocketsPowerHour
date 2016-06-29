@@ -1,3 +1,10 @@
-# SocketsPowerHour
+# Sockets Power Hour
 
-ReadMe
+## Powered by Elite Squad.
+
+
+# Steps
+
+- Run npm install.
+- Run gulp.
+- Run nodemon app.
