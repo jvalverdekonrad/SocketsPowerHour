@@ -2,24 +2,11 @@
 // Imports //
 // ------- //
 @import "_Vendor";
+@import "_variables";
 @import "_layout";
+@import "_pokemon-list";
 
-// --------- //
-// Variables //
-// --------- //
-// - Colors  //
-$peter_river : #3498db;
-$belize_hole : #2980b9;
-$clouds      : #ecf0f1;
-$alizarin    : #e74c3c;
-$emerald     : #2ecc71;
-// - Theme   //
-$main-color      : $peter_river;
-$main-color-dark : $belize_hole;
-$tile-border     : $belize_hole;
-$tile-hover      : $clouds;
-$dirty-x         : $alizarin;
-$dirty-o         : $emerald;
+
 // --------- //
 
 body {

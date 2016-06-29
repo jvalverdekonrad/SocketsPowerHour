@@ -12,9 +12,10 @@ const ejs     = require('ejs');
 // -------------- //
 // Initialize App //
 // -------------- //
-const app  = express();
-const http = require('http').Server(app);
-const io   = require('socket.io')(http);
+const app  	  = express();
+const http 	  = require('http').Server(app);
+const request = require('request');
+const io   	  = require('socket.io')(http);
 
 // ---------------------- //
 // Configurate Enviorment //
@@ -26,11 +27,11 @@ app.use(express.static(config.staticFolder));
 // -------------------- //
 // Socket Configuration //
 // -------------------- //
-var sockets = require('./server/sockets')(io);
+var sockets = require('./server/sockets')(io, request);
 // --------------------- //
 // Application Endpoints //
 // --------------------- //
-var endpoints = require('./server/endpoints')(app);
+var endpoints = require('./server/endpoints')(app, request);
 // ------------------ //
 // Application Routes //
 // ------------------ //
