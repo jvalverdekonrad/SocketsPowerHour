@@ -2,61 +2,15 @@
 // Imports //
 // ------- //
 @import "_Vendor";
-@import "_variables";
-@import "_layout";
-@import "_pokemon-list";
 
-
-// --------- //
 
 body {
 	font-family : 'Arial';
-	background  : $main-color;
+	background  : whitesmoke;
 	margin      : 0;
 }
 
-.title {
-	color      : white;
-	text-align : center;
-}
-
-.board {
-	background : $main-color-dark;
-	padding    : 30px;
-}
-
-.tile {
-	background     : white;
-	position       : relative;
-	padding-bottom : 33.33333%; 
-	border         : 1px solid $tile-border;
-
-		&.dirty {
-			&::after {
-				content   : "";
-				font-size: 8vw;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				text-align: center;
-				height: 100%;
-			}
-			&.dirty-x {
-				&::after {
-					content : "X";
-					color   : $dirty-x;
-				}
-			}
-			&.dirty-o {
-				&::after {
-					content : "O";
-					color   : $dirty-o;
-				}
-			}
-		}
-		&:hover {
-			background : $tile-hover;
-			cursor     : pointer;
-		}
+h1 {
+	text-align: center;
+	padding: 2em;
 }

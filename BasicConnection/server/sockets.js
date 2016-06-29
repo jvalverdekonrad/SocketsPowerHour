@@ -2,50 +2,30 @@
 
 module.exports = function(io, request) {
 
-	class Player {
-		constructor (name) {
-			this.name    = name;
-			this.id      = this.getGUID();
-			this.symbol  = 'x';
-			this.playing = false;
-		}
-		getGUID () {
-		  function s4() {
-		    return Math.floor((1 + Math.random()) * 0x10000)
-		      .toString(16)
-		      .substring(1);
-		  }
-		  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-		    s4() + '-' + s4() + s4() + s4();
-		}
-	}
-
-	function getAllPokemons(){ 
-		let pokemons = null;
-
-		request('http://pokeapi.co/api/v2/pokemon', function(request, response, data){
-			pokemons = data;
-		});
-
-		return pokemons;
-	}
-
-	let players     = {};
-	let board       = [];    
-	let connections = 0;
-
+	// Instance on connection.
 	io.on('connection', function(socket) {
-		connections = connections + 1;
-
-		io.emit('init:game', new Player(`User-${connections}`) );
-
+		// Set disconnection actions.
 		socket.on('disconnect', function() {
-			connections = connections - 1;
+			// Do something.
 		});
 
-		socket.on('make:play', function(play){
+		// An event happened in the client side.
+		socket.on('event:happened', function(/* Paremeters */) {
+			// Do something.
+		});
+
+		// emit vs broadcast.emit
+		// emit           -> Sends an event to everyone.
+		// broadcast.emit -> Sends an event to everyone but whoever trigger the client event.
+
+		// Sending an event from the server to the client.
+		io.emit('sending:event', {/* Payload */} );
+
+		socket.on('client:did:stuff', function(play){
+			// Broadcast an event.
 			socket.broadcast.emit('enemy:play', play);
 		});
+
 
 	});
 
