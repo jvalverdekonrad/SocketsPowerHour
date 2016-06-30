@@ -1,30 +1,18 @@
 'use strict';
 
 module.exports = function(io, request) {
-	// Client Connection.
-	const opinions   = io.of('/opinions');
-	const opinionObj = {
-		'Alonso'   : 'Me cago en Lonis.',
-		'Canessa'  : 'Que picha vivir.',
-		'Pizzarro' : 'zZZ',
-	};
 
-	opinions.on('connection', (socket) => {
+	let count = 0;
+
+	io.on('connection', (socket) => {
 		
-		socket.on('get', () => {
-			opinions.emit('opinions:sended', opinionObj);
-		});
+		let messages = setInterval( () => {
+			socket.volatile.emit('message', count);
+			count = count + 1;
+		}, 1000);
 
-	});
-
-	// Admin Conection.
-	const news    = io.of('/news');
-	const newsObj = 'Sequía: Birra se termina en KG.';
-
-	news.on('connection', (socket) => {
-
-		socket.on('get', (socket) => {
-			news.emit('news:sended', newsObj);
+		socket.on('disconnect', () => {
+			clearInterval(messages);
 		});
 
 	});

@@ -32,7 +32,6 @@ var sockets = require('./server/sockets')(io, request);
 // Application Routes //
 // ------------------ //
 var routes = require('./server/routes')(app, config);
-
 // ------------- //
 // Start the app //
 // ------------- //
