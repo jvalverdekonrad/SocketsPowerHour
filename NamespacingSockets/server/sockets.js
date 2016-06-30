@@ -1,50 +1,30 @@
 'use strict';
 
 module.exports = function(io, request) {
+	// Client Connection.
+	const opinions   = io.of('/opinions');
+	const opinionObj = {
+		'Alonso'   : 'Me cago en Lonis.',
+		'Canessa'  : 'Que picha vivir.',
+		'Pizzarro' : 'zZZ',
+	};
 
-	class Player {
-		constructor (name) {
-			this.name    = name;
-			this.id      = this.getGUID();
-			this.symbol  = 'x';
-			this.playing = false;
-		}
-		getGUID () {
-		  function s4() {
-		    return Math.floor((1 + Math.random()) * 0x10000)
-		      .toString(16)
-		      .substring(1);
-		  }
-		  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-		    s4() + '-' + s4() + s4() + s4();
-		}
-	}
-
-	function getAllPokemons(){ 
-		let pokemons = null;
-
-		request('http://pokeapi.co/api/v2/pokemon', function(request, response, data){
-			pokemons = data;
+	opinions.on('connection', (socket) => {
+		
+		socket.on('get', () => {
+			opinions.emit('opinions:sended', opinionObj);
 		});
 
-		return pokemons;
-	}
+	});
 
-	let players     = {};
-	let board       = [];    
-	let connections = 0;
+	// Admin Conection.
+	const news    = io.of('/news');
+	const newsObj = 'Sequía: Birra se termina en KG.';
 
-	io.on('connection', function(socket) {
-		connections = connections + 1;
+	news.on('connection', (socket) => {
 
-		io.emit('init:game', new Player(`User-${connections}`) );
-
-		socket.on('disconnect', function() {
-			connections = connections - 1;
-		});
-
-		socket.on('make:play', function(play){
-			socket.broadcast.emit('enemy:play', play);
+		socket.on('get', (socket) => {
+			news.emit('news:sended', newsObj);
 		});
 
 	});

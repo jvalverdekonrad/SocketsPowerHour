@@ -28,10 +28,6 @@ app.use(express.static(config.staticFolder));
 // Socket Configuration //
 // -------------------- //
 var sockets = require('./server/sockets')(io, request);
-// --------------------- //
-// Application Endpoints //
-// --------------------- //
-var endpoints = require('./server/endpoints')(app, request);
 // ------------------ //
 // Application Routes //
 // ------------------ //

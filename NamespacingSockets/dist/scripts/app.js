@@ -1,32 +1,32 @@
 'use strict';
 
 var socket = io();
-var Player = null;
 
-socket.on('init:game', function (_Player) {
-	Player = _Player;
+var news = io.connect('/news');
+var opinions = io.connect('/opinions');
+
+var container = jQuery('#container');
+var newsBtn = jQuery('#newsBtn');
+var opinionsBtn = jQuery('#opinionsBtn');
+
+newsBtn.on('click', function () {
+	news.emit('get');
 });
 
-socket.on('poke:mon', function (pokemons) {
-	console.log(pokemons);
+news.on('news:sended', function (newsObj) {
+	container.html('<h1>' + newsObj + '</h1>');
 });
 
-socket.on('enemy:play', function (data) {
-	console.log(data);
+opinions.on('opinions:sended', function (opinionsSended) {
+	var opinionList = '';
+
+	for (var opinion in opinionsSended) {
+		opinionList = opinionList + ('<li><strong>' + opinion + ' :</strong> ' + opinionsSended[opinion] + '</li>');
+	}
+
+	container.html('<ul class="opinions" >' + opinionList + '</ul>');
 });
 
-// To trigger an action.
-// verb:subject -> create:comment
-// When the action has been executed
-// subject:verb -> comments:updated
-
-jQuery('.tile').on('click', function () {
-
-	var element = jQuery(this);
-
-	socket.emit('make:play', {
-		Player: Player,
-		x: element.data('x'),
-		y: element.data('y')
-	});
+opinionsBtn.on('click', function () {
+	opinions.emit('get');
 });
