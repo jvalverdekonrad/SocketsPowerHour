@@ -1,0 +1,33 @@
+// ------- //
+// Imports //
+// ------- //
+@import "_Vendor";
+
+// --------- //
+
+body {
+	font-family : 'Arial';
+	background  : whitesmoke;
+	margin      : 0;
+}
+
+h1 {
+	padding    : 2em 0;
+	text-align : center;
+}
+
+ul {
+	list-style : none;
+}
+
+.opinions {
+	margin-top : 2em;
+	 li {
+	 	padding    : 1em;
+	 	background : white;
+	 	font-size  : 20px;
+	 		&:not(:last-child) {
+				border-bottom : 1px solid whitesmoke;
+	 		}
+	 }
+}
