@@ -18,13 +18,13 @@ module.exports = function(io, app) {
 	// socket -> Listen to Events.
 
 	// Instance on connection.
-	io.on('connection', function(socket) {
+	io.on('connection', (socket) => {
 		
-		socket.on('disconnect', function() {
+		socket.on('disconnect', () =? {
 			
 		});
 
-		socket.on('create:user', function(name, callback){
+		socket.on('create:user', (name, callback) => {
 			const newUser = {
 				name : name,
 				id   : GUID()
@@ -39,7 +39,7 @@ module.exports = function(io, app) {
 
 	});
 
-	app.get('/getUserList', function(request, response, next) {
+	app.get('/getUserList', (request, response, next) => {
 		response.send(users);
 	});
 

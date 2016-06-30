@@ -3,11 +3,11 @@ const socket = io();
 
 const connectionCounter = jQuery('#connection-counter');
 
-socket.on('new:connection', function(connectionAmount) {	
+socket.on('new:connection', (connectionAmount) => {	
 	connectionCounter.html(connectionAmount);
 });
 
-socket.on('new:disconnection', function(connectionAmount) {	
+socket.on('new:disconnection', (connectionAmount) => {	
 	connectionCounter.html(connectionAmount);
 });
 
