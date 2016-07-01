@@ -8,5 +8,6 @@ Powered by Elite Squad.
 Inside one of the folders.
 
 - Run npm install.
+- Run npm install -g nodemon
 - Run gulp.
 - Run nodemon app.
