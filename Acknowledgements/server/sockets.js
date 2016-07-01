@@ -20,7 +20,7 @@ module.exports = function(io, app) {
 	// Instance on connection.
 	io.on('connection', (socket) => {
 		
-		socket.on('disconnect', () =? {
+		socket.on('disconnect', () => {
 			
 		});
 
